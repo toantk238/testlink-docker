@@ -1,0 +1,21 @@
+version: '3.8'
+volumes:
+  poc_database:
+services:
+  web:
+    image: nginx:latest
+    ports:
+      - "1235:81"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/nginx.conf
+      - ./testlink/testlink-code/:/app
+  database:
+    build: database/
+    volumes:
+      - poc_database:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+  testlink:
+    build: testlink/
+    ports:
+      - '9000:9000'
