@@ -10,8 +10,8 @@ RUN chmod -R 777 /var/testlink/upload_area/
 ADD ./testlink-code .
 
 RUN chmod -R 777 /app/gui/templates_c/
-ADD ./entrypoint.sh /usr/bin/entrypoint.sh
-RUN chmod u+x /usr/bin/entrypoint.sh
+# ADD ./entrypoint.sh /usr/bin/entrypoint.sh
+# RUN chmod u+x /usr/bin/entrypoint.sh
 
 RUN apt update && apt-get install -y php7.4-pgsql
 RUN chmod -R 777 .
